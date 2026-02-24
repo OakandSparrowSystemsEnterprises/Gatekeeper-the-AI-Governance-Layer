@@ -37,7 +37,7 @@ class GatekeeperHandler(BaseHTTPRequestHandler):
             headers={"Content-Type": "application/json"},
             method="POST"
         )
-        with urllib.request.urlopen(upstream_req) as resp:
+        with urllib.request.urlopen(upstream_req, timeout=120) as resp:
             res_body = resp.read()
             status = resp.status
 
